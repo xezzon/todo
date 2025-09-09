@@ -1,6 +1,9 @@
 version: v2
-clean: true
 plugins:
-  - local: protoc-gen-es
-    out: gen
+  - remote: buf.build/bufbuild/es
+    out: es
     include_imports: true
+  - remote: buf.build/protocolbuffers/go
+    out: ../
+  - remote: buf.build/connectrpc/go
+    out: ../
