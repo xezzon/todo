@@ -9,7 +9,7 @@ import { TodoService } from "todo-proto/es/task_pb";
 // If your endpoint only supports gRPC-web, make sure to use
 // `createGrpcWebTransport` instead.
 const transport = createConnectTransport({
-  baseUrl: process.env.NEXT_PUBLIC_TODO_SERVICE,
+  baseUrl: '/api',
 });
 
 // Here we make the client itself, combining the service
