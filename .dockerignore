@@ -1,0 +1,9 @@
+**/node_modules
+**/.next
+**/*.local
+**/Dockerfile
+.dockerignore
+.git
+
+todo-proto/es
+todo-service/gen

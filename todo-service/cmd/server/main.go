@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"log"
 	"net/http"
 
 	"connectrpc.com/connect"
@@ -62,9 +63,12 @@ func main() {
 	mux := http.NewServeMux()
 	path, handler := taskconnect.NewTodoServiceHandler(server)
 	mux.Handle(path, handler)
+
+	addr := "0.0.0.0:8080"
 	http.ListenAndServe(
-		"localhost:8080",
+		addr,
 		// Use h2c so we can serve HTTP/2 without TLS.
 		h2c.NewHandler(mux, &http2.Server{}),
 	)
+	log.Printf("Starting server on %s", addr)
 }
