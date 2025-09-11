@@ -5,8 +5,7 @@ services:
       dockerfile: todo-service/Dockerfile
     labels:
       - traefik.enable=true
-      - traefik.http.routers.todo-service.rule=PathPrefix(`/api/TodoService`)
-      - traefik.http.routers.todo-service.middlewares=strip-api@docker
+      - traefik.http.routers.todo-service.rule=PathPrefix(`/TodoService`)
   todo-fe:
     image: todo-fe:latest
     build:
@@ -23,5 +22,3 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       #- /run/user/$UID/podman/podman.sock:/var/run/docker.sock
-    labels:
-      - traefik.http.middlewares.strip-api.stripprefix.prefixes=/api

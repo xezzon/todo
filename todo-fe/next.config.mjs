@@ -4,7 +4,7 @@ const nextConfig = {
   rewrites() {
     return [
       {
-        source: '/api/TodoService/:path*',
+        source: '/TodoService/:path*',
         destination: `http://localhost:8080/TodoService/:path*`
       }
     ]
